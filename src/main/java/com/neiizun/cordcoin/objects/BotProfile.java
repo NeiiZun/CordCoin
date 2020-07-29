@@ -1,7 +1,9 @@
 package com.neiizun.cordcoin.objects;
 
 import net.dv8tion.jda.api.OnlineStatus;
-import net.dv8tion.jda.api.entities.Activity;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class BotProfile {
     private final String token;
@@ -16,6 +18,11 @@ public class BotProfile {
         this.commandsPrefix = commandPrefix;
         this.version = version;
         this.activityMessage = activityMessage;
+
+
+        new Thread(() -> {
+
+        });
     }
 
     public String getToken() {
@@ -33,8 +40,6 @@ public class BotProfile {
     public String getVersion() {
         return version;
     }
-
-
 
     public String getActivityMessage() {
         return activityMessage;

@@ -14,7 +14,7 @@ public class BalanceEmbed extends EmbedBuilder {
 
         this.setAuthor(Emoji.MoneyWithWings + " balance - " + userName, null, jda.getSelfUser().getAvatarUrl());
         this.addField("", "[" + Emoji.Moneybag + "] " + userProfile.getCordCoins() + " CC", false);
-        this.setFooter(Emoji.Sparkles + "CordCoin, the new discord coin bot !");
+        this.setFooter(Emoji.Sparkles + " CordCoin, the new discord coin bot !");
         this.setThumbnail(user.getAvatarUrl());
         this.setColor(Color.YELLOW);
     }

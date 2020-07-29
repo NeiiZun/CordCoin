@@ -22,6 +22,7 @@ public class UsersManager {
             UserProfile userProfile = new UserProfile(userID, 0.05, 0);
             userProfiles.put(userID, userProfile);
             saveProfile(userID);
+            cordCoin.getActivityManager().updateActivity();
         }
 
         return userProfiles.get(userID);

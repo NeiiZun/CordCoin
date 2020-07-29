@@ -1,6 +1,7 @@
 package com.neiizun.cordcoin;
 
 import com.neiizun.cordcoin.commands.BalanceCommand;
+import com.neiizun.cordcoin.commands.PayCommand;
 import com.neiizun.cordcoin.commands.ProfileCommand;
 import com.neiizun.cordcoin.commands.StartCommand;
 import com.neiizun.cordcoin.listeners.EventsListener;
@@ -54,6 +55,7 @@ public class CordCoin {
         this.commandsManager.registerCommand(new String[]{"start"}, new StartCommand(this));
         this.commandsManager.registerCommand(new String[]{"profile", "show"}, new ProfileCommand(this));
         this.commandsManager.registerCommand(new String[]{"balance", "bal"}, new BalanceCommand(this));
+        this.commandsManager.registerCommand(new String[]{"pay"}, new PayCommand(this));
     }
 
     public MessagesManager getMessagesManager() {
@@ -86,5 +88,9 @@ public class CordCoin {
 
     public UsersManager getUsersManager() {
         return usersManager;
+    }
+
+    public ActivityManager getActivityManager() {
+        return activityManager;
     }
 }

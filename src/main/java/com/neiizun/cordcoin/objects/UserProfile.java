@@ -1,9 +1,9 @@
 package com.neiizun.cordcoin.objects;
 
 public class UserProfile {
-    private final String userID;
-    private final double cordCoins;
-    private final int miners;
+    private String userID;
+    private double cordCoins;
+    private int miners;
 
     public UserProfile(String userID, double cordCoins, int miners) {
         this.userID = userID;
@@ -21,5 +21,13 @@ public class UserProfile {
 
     public int getMiners() {
         return miners;
+    }
+
+    public void setCordCoins(double cordCoins) {
+        this.cordCoins = cordCoins;
+    }
+
+    public void setMiners(int miners) {
+        this.miners = miners;
     }
 }
