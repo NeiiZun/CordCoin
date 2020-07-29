@@ -36,6 +36,11 @@
                                     <pattern>net.dv8tion.jda.core</pattern>
                                     <shadedPattern>net.dv8tion.jda.core</shadedPattern>
                                 </relocation>
+
+                                <relocation>
+                                    <pattern>com.google.code.gson</pattern>
+                                    <shadedPattern>com.google.code.gson</shadedPattern>
+                                </relocation>
                             </relocations>
                         </configuration>
                     </execution>

@@ -10,7 +10,7 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
 
 public class StartCommand implements CommandExecutor {
-    private CordCoin cordCoin;
+    private final CordCoin cordCoin;
 
     public StartCommand(CordCoin cordCoin) {
         this.cordCoin = cordCoin;
@@ -25,6 +25,6 @@ public class StartCommand implements CommandExecutor {
             return;
         }
 
-        textChannel.sendMessage(new ProfileEmbed(this.cordCoin.getUsersManager().createProfile(userID), user.getName(), jda).build()).queue();
+        textChannel.sendMessage(new ProfileEmbed(user, this.cordCoin.getUsersManager().createProfile(userID), jda).build()).queue();
     }
 }

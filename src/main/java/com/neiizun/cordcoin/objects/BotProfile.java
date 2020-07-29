@@ -6,11 +6,13 @@ public class BotProfile {
     private final String token;
     private final OnlineStatus onlineStatus;
     private final String commandsPrefix;
+    private final String version;
 
-    public BotProfile(String token, OnlineStatus onlineStatus, String commandPrefix) {
+    public BotProfile(String token, OnlineStatus onlineStatus, String commandPrefix, String version) {
         this.token = token;
         this.onlineStatus = onlineStatus;
         this.commandsPrefix = commandPrefix;
+        this.version = version;
     }
 
     public String getToken() {
@@ -23,5 +25,9 @@ public class BotProfile {
 
     public String getCommandsPrefix() {
         return commandsPrefix;
+    }
+
+    public String getVersion() {
+        return version;
     }
 }

@@ -7,11 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CommandsManager {
-    private final CordCoin cordCoin;
     private final Map<String[], CommandExecutor> commands;
 
-    public CommandsManager(CordCoin cordCoin) {
-        this.cordCoin = cordCoin;
+    public CommandsManager() {
         this.commands = new HashMap<>();
     }
 

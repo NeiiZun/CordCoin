@@ -1,7 +1,9 @@
 package com.neiizun.cordcoin;
 
+import com.neiizun.cordcoin.commands.BalanceCommand;
+import com.neiizun.cordcoin.commands.ProfileCommand;
 import com.neiizun.cordcoin.commands.StartCommand;
-import com.neiizun.cordcoin.listeners.BotEventListener;
+import com.neiizun.cordcoin.listeners.EventsListener;
 import com.neiizun.cordcoin.managers.CommandsManager;
 import com.neiizun.cordcoin.managers.FilesManager;
 import com.neiizun.cordcoin.managers.UsersManager;
@@ -32,7 +34,7 @@ public class CordCoin {
         this.botFile = this.filesManager.createFile(new File("bot.json"), "bot");
         this.botProfile = (BotProfile) this.jsonUtils.deserialize(this.filesManager.getContent("bot"), BotProfile.class);
         this.usersManager = new UsersManager(this);
-        this.commandsManager = new CommandsManager(this);
+        this.commandsManager = new CommandsManager();
 
         try {
             this.jda = (new JDABuilder()).setToken(this.botProfile.getToken()).build();
@@ -42,11 +44,13 @@ public class CordCoin {
         }
 
         registerCommands();
-        this.jda.addEventListener(new BotEventListener(this));
+        this.jda.addEventListener(new EventsListener(this));
     }
 
     public void registerCommands() {
         this.commandsManager.registerCommand(new String[]{"start"}, new StartCommand(this));
+        this.commandsManager.registerCommand(new String[]{"profile", "show"}, new ProfileCommand(this));
+        this.commandsManager.registerCommand(new String[]{"balance", "bal"}, new BalanceCommand(this));
     }
 
     public FilesManager getFilesManager() {
