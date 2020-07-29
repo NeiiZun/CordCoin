@@ -6,6 +6,7 @@ import com.neiizun.cordcoin.commands.StartCommand;
 import com.neiizun.cordcoin.listeners.EventsListener;
 import com.neiizun.cordcoin.managers.CommandsManager;
 import com.neiizun.cordcoin.managers.FilesManager;
+import com.neiizun.cordcoin.managers.MessagesManager;
 import com.neiizun.cordcoin.managers.UsersManager;
 import com.neiizun.cordcoin.objects.BotProfile;
 import com.neiizun.cordcoin.utils.JsonUtils;
@@ -16,6 +17,7 @@ import javax.security.auth.login.LoginException;
 import java.io.File;
 
 public class CordCoin {
+    private MessagesManager messagesManager;
     private FilesManager filesManager;
     private JsonUtils jsonUtils;
     private File botFile;
@@ -29,6 +31,7 @@ public class CordCoin {
     }
 
     public void onEnable() {
+        this.messagesManager = new MessagesManager();
         this.filesManager = new FilesManager();
         this.jsonUtils = new JsonUtils();
         this.botFile = this.filesManager.createFile(new File("bot.json"), "bot");
@@ -51,6 +54,10 @@ public class CordCoin {
         this.commandsManager.registerCommand(new String[]{"start"}, new StartCommand(this));
         this.commandsManager.registerCommand(new String[]{"profile", "show"}, new ProfileCommand(this));
         this.commandsManager.registerCommand(new String[]{"balance", "bal"}, new BalanceCommand(this));
+    }
+
+    public MessagesManager getMessagesManager() {
+        return messagesManager;
     }
 
     public FilesManager getFilesManager() {

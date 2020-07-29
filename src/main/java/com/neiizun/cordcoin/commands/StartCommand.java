@@ -21,10 +21,12 @@ public class StartCommand implements CommandExecutor {
         String userID = user.getId();
 
         if(this.cordCoin.getUsersManager().getUserProfile(userID) != null) {
-            textChannel.sendMessage(":octagonal_sign: you already have a profile").queue();
+            textChannel.sendMessage(cordCoin.getMessagesManager().getMessage("already_have_profile")).queue();
             return;
         }
 
-        textChannel.sendMessage(new ProfileEmbed(user, this.cordCoin.getUsersManager().createProfile(userID), jda).build()).queue();
+        cordCoin.getUsersManager().createProfile(userID);
+
+        textChannel.sendMessage(cordCoin.getMessagesManager().getMessage("successfully_started")).queue();
     }
 }

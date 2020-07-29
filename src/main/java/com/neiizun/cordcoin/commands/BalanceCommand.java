@@ -2,9 +2,8 @@ package com.neiizun.cordcoin.commands;
 
 import com.neiizun.cordcoin.CordCoin;
 import com.neiizun.cordcoin.embeds.BalanceEmbed;
-import com.neiizun.cordcoin.embeds.ProfileEmbed;
-import com.neiizun.cordcoin.enums.emojis.Emoji;
 import com.neiizun.cordcoin.interfaces.CommandExecutor;
+import com.neiizun.cordcoin.objects.UserProfile;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -35,6 +34,7 @@ public class BalanceCommand implements CommandExecutor {
         }
 
         user = null;
+        UserProfile userProfile = this.cordCoin.getUsersManager().getUserProfile(id);
 
         try {
             user = jda.getUserById(id);
@@ -42,11 +42,11 @@ public class BalanceCommand implements CommandExecutor {
 
         }
 
-        if (user == null) {
-            textChannel.sendMessage(Emoji.SmallRedTriangle + " can't find profile this user (").queue();
+        if (user == null || userProfile == null) {
+            textChannel.sendMessage(cordCoin.getMessagesManager().getMessage("unknown_profile")).queue();
             return;
         }
 
-        textChannel.sendMessage(new BalanceEmbed(user, this.cordCoin.getUsersManager().getUserProfile(id), jda).build()).queue();
+        textChannel.sendMessage(new BalanceEmbed(user, userProfile, jda).build()).queue();
     }
 }
