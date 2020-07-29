@@ -19,12 +19,16 @@ There is also one of the richest users
 
 ### 💻 Commands:
 
+
+ - **$$!start** : *Create your balance.*
+ - **$$!profile** : *Show your profile.*
+ - **$$!profile <@user>** : *Show profile of a user.*
  - **$$!help** : *Show help page.*
- - **$$!buy** : *Buy miners with yours CC*
- - **$$!top** : *Show the richest users of CordCoin*
- - **$$!pay <@user>** : *Pay user with your CC*
- - **$$!bal** : *Show your balance*
- -  **$$!bal <@user>** : *Show balance of a user.
+ - **$$!buy** : *Buy miners with yours CC.*
+ - **$$!top** : *Show the richest users of CordCoin.*
+ - **$$!pay <@user>** : *Pay user with your CC.*
+ - **$$!bal** : *Show your balance.*
+ -  **$$!bal <@user>** : *Show balance of a user.*
  
 ## ✉️ Contact
 
