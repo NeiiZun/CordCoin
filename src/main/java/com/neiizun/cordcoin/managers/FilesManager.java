@@ -1,7 +1,9 @@
 package com.neiizun.cordcoin.managers;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FilesManager {
@@ -20,9 +22,19 @@ public class FilesManager {
         return null;
     }
 
-    public File createFile(String filePath, String fileName) {
-        File file = new File(filePath);
 
+    public List<File> getDirectoryFiles(String dirPath) {
+        File file = new File(dirPath);
+        List<File> files = new ArrayList<>();
+
+        for (File listFile : file.listFiles()) {
+            files.add(listFile);
+        }
+
+        return files;
+    }
+
+    public File createFile(File file, String fileName) {
         try {
             file.createNewFile();
         } catch (IOException e) {

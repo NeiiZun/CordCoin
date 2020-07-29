@@ -1,8 +1,10 @@
 package com.neiizun.cordcoin;
 
+import com.neiizun.cordcoin.commands.StartCommand;
 import com.neiizun.cordcoin.listeners.BotEventListener;
 import com.neiizun.cordcoin.managers.CommandsManager;
 import com.neiizun.cordcoin.managers.FilesManager;
+import com.neiizun.cordcoin.managers.UsersManager;
 import com.neiizun.cordcoin.objects.BotProfile;
 import com.neiizun.cordcoin.utils.JsonUtils;
 import net.dv8tion.jda.api.JDA;
@@ -17,6 +19,7 @@ public class CordCoin {
     private File botFile;
     private BotProfile botProfile;
     private CommandsManager commandsManager;
+    private UsersManager usersManager;
     private JDA jda;
 
     public CordCoin() {
@@ -26,8 +29,9 @@ public class CordCoin {
     public void onEnable() {
         this.filesManager = new FilesManager();
         this.jsonUtils = new JsonUtils();
-        this.botFile = this.filesManager.createFile("bot.json", "bot");
+        this.botFile = this.filesManager.createFile(new File("bot.json"), "bot");
         this.botProfile = (BotProfile) this.jsonUtils.deserialize(this.filesManager.getContent("bot"), BotProfile.class);
+        this.usersManager = new UsersManager(this);
         this.commandsManager = new CommandsManager(this);
 
         try {
@@ -42,7 +46,7 @@ public class CordCoin {
     }
 
     public void registerCommands() {
-        //register commands
+        this.commandsManager.registerCommand(new String[]{"start"}, new StartCommand(this));
     }
 
     public FilesManager getFilesManager() {
@@ -67,5 +71,9 @@ public class CordCoin {
 
     public CommandsManager getCommandsManager() {
         return commandsManager;
+    }
+
+    public UsersManager getUsersManager() {
+        return usersManager;
     }
 }

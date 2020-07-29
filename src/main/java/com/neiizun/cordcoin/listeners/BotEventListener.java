@@ -42,7 +42,7 @@ public class BotEventListener implements EventListener {
                     list.remove(prefix + name);
                     args = (String[]) list.toArray();
 
-                    entry.getValue().onCommand(event.getAuthor(), event.getGuild(), event.getChannel(), message, args);
+                    entry.getValue().onCommand(this.cordCoin.getJda(), event.getAuthor(), event.getGuild(), event.getChannel(), message, args);
                 }
             }
         }
