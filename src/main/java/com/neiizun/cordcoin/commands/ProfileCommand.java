@@ -20,6 +20,11 @@ public class ProfileCommand implements CommandExecutor {
     public void onCommand(JDA jda, User user, Guild guild, TextChannel textChannel, String message, String[] args) {
 
         if (args.length < 1) {
+            if (this.cordCoin.getUsersManager().getUserProfile(user.getId()) == null) {
+                textChannel.sendMessage(cordCoin.getMessagesManager().getMessage("unknown_self_profile")).queue();
+                return;
+            }
+
             textChannel.sendMessage(new ProfileEmbed(user, this.cordCoin.getUsersManager().getUserProfile(user.getId()), jda).build()).queue();
             return;
         }

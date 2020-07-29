@@ -19,7 +19,7 @@ public class UsersManager {
 
     public UserProfile createProfile(String userID) {
         if(!this.userProfiles.containsKey(userID)) {
-            UserProfile userProfile = new UserProfile(userID, 0.55, 0);
+            UserProfile userProfile = new UserProfile(userID, 0.05, 0);
             userProfiles.put(userID, userProfile);
             saveProfile(userID);
         }
@@ -53,5 +53,19 @@ public class UsersManager {
                 this.userProfiles.put(userProfile.getUserID(), userProfile);
             }
         }
+    }
+
+    public int getUsersSize() {
+        return this.userProfiles.values().size();
+    }
+
+    public double getTotalCordCoins() {
+        double total = 0;
+
+        for (UserProfile value : this.userProfiles.values()) {
+            total += value.getCordCoins();
+        }
+
+        return total;
     }
 }

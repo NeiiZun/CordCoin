@@ -15,6 +15,7 @@ public class MessagesManager {
 
     private void createMessages() {
         messages.put("unknown_profile", Emoji.OpenFileFolder + " Ooh Ohh, looks like this user doesn't have a CordCoin profile !");
+        messages.put("unknown_self_profile", Emoji.OpenFileFolder + " Ooh Ohh, looks like you don't have a CordCoin profile !");
         messages.put("already_have_profile", Emoji.Newspaper + " Hmm.. you already have a profile !");
         messages.put("successfully_started", Emoji.Computer + " Profile successfully created !, you can now buy your first miner machine ! ");
     }
