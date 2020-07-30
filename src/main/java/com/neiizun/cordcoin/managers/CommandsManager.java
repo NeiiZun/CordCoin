@@ -1,6 +1,5 @@
 package com.neiizun.cordcoin.managers;
 
-import com.neiizun.cordcoin.CordCoin;
 import com.neiizun.cordcoin.interfaces.CommandExecutor;
 
 import java.util.HashMap;

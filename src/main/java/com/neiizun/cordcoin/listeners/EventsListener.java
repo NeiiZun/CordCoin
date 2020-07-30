@@ -4,8 +4,6 @@ import com.neiizun.cordcoin.CordCoin;
 import com.neiizun.cordcoin.interfaces.CommandExecutor;
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.api.hooks.EventListener;
-
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Arrays;

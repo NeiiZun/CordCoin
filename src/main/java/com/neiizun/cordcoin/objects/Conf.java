@@ -1,0 +1,26 @@
+package com.neiizun.cordcoin.objects;
+
+public class Conf {
+    private final double minerPrice;
+    private final double startingPrice;
+    private final double minMinerGain;
+
+    public Conf(double minerPrice, double startingPrice, double minMinerGain) {
+        this.minerPrice = minerPrice;
+        this.startingPrice = startingPrice;
+        this.minMinerGain = minMinerGain;
+    }
+
+
+    public double getMinerPrice() {
+        return this.minerPrice;
+    }
+
+    public double getStartingPrice() {
+        return this.startingPrice;
+    }
+
+    public double getMinMinerGain() {
+        return this.minMinerGain;
+    }
+}

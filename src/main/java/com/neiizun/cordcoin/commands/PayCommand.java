@@ -29,38 +29,35 @@ public class PayCommand implements CommandExecutor {
         for (String c : toReplace) {
             id = id.replace(c, "");
         }
-        UserProfile userProfile = cordCoin.getUsersManager().getUserProfile(user.getId());
-        UserProfile targetProfile = cordCoin.getUsersManager().getUserProfile(id);
+        UserProfile userProfile = this.cordCoin.getUsersManager().getUserProfile(user.getId());
+        UserProfile targetProfile = this.cordCoin.getUsersManager().getUserProfile(id);
 
-        if(userProfile == null) {
-            textChannel.sendMessage(cordCoin.getMessagesManager().getMessage("unknown_self_profile")).queue();
+        if (userProfile == null) {
+            textChannel.sendMessage(this.cordCoin.getMessagesManager().getMessage("unknown_self_profile")).queue();
             return;
         }
 
-        if(targetProfile == null) {
-            textChannel.sendMessage(cordCoin.getMessagesManager().getMessage("unknown_profile")).queue();
+        if (targetProfile == null) {
+            textChannel.sendMessage(this.cordCoin.getMessagesManager().getMessage("unknown_profile")).queue();
             return;
         }
 
 
-
-        double amount;
+        double amount = 0;
 
         try {
             amount = Double.parseDouble(args[1]);
-        } catch (Exception e) {
-            textChannel.sendMessage(cordCoin.getMessagesManager().getMessage("not_a_number")).queue();
-            return;
+        } catch (Exception ignored) {
         }
 
         if(amount == 0) {
-            textChannel.sendMessage(cordCoin.getMessagesManager().getMessage("not_a_number")).queue();
+            textChannel.sendMessage(this.cordCoin.getMessagesManager().getMessage("not_a_number")).queue();
             return;
         }
 
 
         if(userProfile.getCordCoins() < amount) {
-            textChannel.sendMessage(cordCoin.getMessagesManager().getMessage("no_many_money")).queue();
+            textChannel.sendMessage(this.cordCoin.getMessagesManager().getMessage("no_many_money")).queue();
             return;
         }
 
@@ -68,6 +65,6 @@ public class PayCommand implements CommandExecutor {
         targetProfile.setCordCoins(targetProfile.getCordCoins()+amount);
         this.cordCoin.getUsersManager().saveProfile(userProfile.getUserID());
         this.cordCoin.getUsersManager().saveProfile(targetProfile.getUserID());
-        textChannel.sendMessage(cordCoin.getMessagesManager().getMessage("successfully_paid")).queue();
+        textChannel.sendMessage(this.cordCoin.getMessagesManager().getMessage("successfully_paid")).queue();
     }
 }

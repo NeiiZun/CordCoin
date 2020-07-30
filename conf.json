@@ -1,0 +1,5 @@
+{
+  "minerPrice" : 0.05,
+  "startingPrice": 0.05,
+  "minMinerGain": 0.001
+}
