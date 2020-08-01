@@ -1,5 +1,6 @@
 {
   "minerPrice" : 0.05,
   "startingPrice": 0.05,
-  "minMinerGain": 0.001
+  "minMinerGain": 0.001,
+  "minerHarvestInterval": 300000
 }

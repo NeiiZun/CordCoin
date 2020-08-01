@@ -1,7 +1,7 @@
 package com.neiizun.cordcoin.objects;
 
 public class UserProfile {
-    private String userID;
+    private final String userID;
     private double cordCoins;
     private int miners;
 

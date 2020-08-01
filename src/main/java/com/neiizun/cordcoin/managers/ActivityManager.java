@@ -1,10 +1,8 @@
 package com.neiizun.cordcoin.managers;
 
 import com.neiizun.cordcoin.CordCoin;
-import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Activity;
 
-import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
 

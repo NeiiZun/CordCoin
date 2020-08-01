@@ -23,6 +23,7 @@ public class CordCoin {
     private final CommandsManager commandsManager;
     private final UsersManager usersManager;
     private final ActivityManager activityManager;
+    private final MinerManager minerManager;
     private JDA jda;
 
     public CordCoin() {
@@ -36,6 +37,7 @@ public class CordCoin {
         this.usersManager = new UsersManager(this);
         this.commandsManager = new CommandsManager();
         this.activityManager = new ActivityManager(this);
+        this.minerManager = new MinerManager(this);
 
         try {
             this.jda = (new JDABuilder()).setToken(this.botProfile.getToken()).build();
@@ -55,7 +57,7 @@ public class CordCoin {
         this.commandsManager.registerCommand(new String[]{"profile", "show"}, new ProfileCommand(this));
         this.commandsManager.registerCommand(new String[]{"balance", "bal"}, new BalanceCommand(this));
         this.commandsManager.registerCommand(new String[]{"pay"}, new PayCommand(this));
-        this.commandsManager.registerCommand(new String[]{"buyminers"}, new BuyMinersCommand(this));
+        this.commandsManager.registerCommand(new String[]{"buyminers", "buyminer"}, new BuyMinersCommand(this));
     }
 
     public MessagesManager getMessagesManager() {
@@ -96,5 +98,9 @@ public class CordCoin {
 
     public Conf getConf() {
         return conf;
+    }
+
+    public File getConfFile() {
+        return confFile;
     }
 }

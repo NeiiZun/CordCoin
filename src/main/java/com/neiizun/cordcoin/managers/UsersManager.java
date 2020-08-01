@@ -69,4 +69,8 @@ public class UsersManager {
 
         return total;
     }
+
+    public Map<String, UserProfile> getUserProfiles() {
+        return userProfiles;
+    }
 }
