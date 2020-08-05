@@ -4,12 +4,12 @@
 
 ## ❔ What is CordCoin
 
-CordCoin is a fictitious cryptocurrency.
+CordCoin is a fictitious cryptomoney.
 With this bot you can buy mining machines, they mine CordCoins for you.
 You start with 0.05 CC to buy your first miner.
 The More miners you have, the more CCs you will earn.
-You can chat with other Discord users, send and receive CCs.
-There is also one of the richest users
+You can trade with other Discord users, send and receive CCs.
+There is also a top of the richest users
 
  ## 🤔 How to use it
 ### 📝 Prerequisites:
